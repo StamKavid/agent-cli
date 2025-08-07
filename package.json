@@ -1,0 +1,41 @@
+{
+  "name": "@stamkavid/agent-cli",
+  "version": "0.3.0",
+  "description": "🤖 Scaffold AI agent projects instantly - zero configuration, just works. One command and you're building agents!",
+  "keywords": ["ai", "agent", "cli", "development", "framework", "llm", "langchain", "langgraph", "scaffolding"],
+  "author": "Stamatis Kavidopoulos <stamatis.kavidopoulos@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/StamKavid/agent-cli#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StamKavid/agent-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/StamKavid/agent-cli/issues"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "agent-cli": "./bin/agent-cli.js",
+    "agent": "./bin/agent-cli.js",
+    "agentcli": "./bin/agent-cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Testing agent-cli npm wrapper...\" && node bin/agent-cli.js --help",
+    "postinstall": "node scripts/postinstall.js",
+    "preuninstall": "node scripts/preuninstall.js"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "files": [
+    "bin/",
+    "scripts/",
+    "README.md",
+    "LICENSE"
+  ],
+  "os": ["win32", "darwin", "linux"],
+  "dependencies": {
+    "cross-spawn": "^7.0.3",
+    "chalk": "^4.1.2"
+  }
+}

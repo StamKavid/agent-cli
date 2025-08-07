@@ -1,18 +1,19 @@
 """
-Agent CLI Package - Create agent project structures similar to CrewAI.
+Agent CLI Package - Clean AI Agent Project Scaffolding.
 
-This package provides tools for generating AI agent projects with
-best practices and comprehensive structure.
+This package provides focused tools for generating AI agent projects
+following Python best practices and clean architecture principles.
 """
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 __author__ = "Stamatis Kavidopoulos"
 
-from .cli import AgentProjectCLI
+# Import zero-config CLI as the main entry point
+from .cli_zero_config import main
 from .exceptions import AgentCLIError, ProjectExistsError, TemplateError
 
 __all__ = [
-    "AgentProjectCLI",
+    "main",
     "AgentCLIError", 
     "ProjectExistsError",
     "TemplateError",

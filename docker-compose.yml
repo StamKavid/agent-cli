@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # Test on Ubuntu (latest)
+  test-ubuntu:
+    build:
+      context: .
+      target: test
+    environment:
+      - PYTHONIOENCODING=utf-8
+    volumes:
+      - ./test_output:/app/test_output
+    command: |
+      sh -c "
+        echo '🐧 Testing on Ubuntu Linux' &&
+        python test_cross_platform.py &&
+        python -m pytest tests/cross_platform/ -v
+      "
+
+  # Test on Alpine (minimal Linux)
+  test-alpine:
+    build:
+      context: .
+      dockerfile: Dockerfile.alpine
+      target: test
+    environment:
+      - PYTHONIOENCODING=utf-8
+    volumes:
+      - ./test_output:/app/test_output
+    command: |
+      sh -c "
+        echo '🏔️ Testing on Alpine Linux' &&
+        python test_cross_platform.py
+      "
+
+  # Interactive development environment
+  dev:
+    build:
+      context: .
+      target: base
+    environment:
+      - PYTHONIOENCODING=utf-8
+    volumes:
+      - .:/app
+      - ./test_output:/app/test_output
+    stdin_open: true
+    tty: true
+    command: /bin/bash
+
+  # Production-like environment
+  prod:
+    build:
+      context: .
+      target: production
+    environment:
+      - PYTHONIOENCODING=utf-8
+    command: python -m agent_cli info
