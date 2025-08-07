@@ -1,406 +1,411 @@
-# 🤖 AgentCLI - AI Agent Project Scaffolding Framework
-
 <div align="center">
 
-[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![GitHub](https://img.shields.io/badge/GitHub-agent--cli-green.svg)](https://github.com/StamKavid/agent-cli)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
-[![Type checked with mypy](https://img.shields.io/badge/mypy-checked-blue)](https://mypy-lang.org/)
+# AgentCLI
 
-**Scaffold AI agent projects in minutes, not hours. The most focused and simplified project setup experience for AI agent development.**
+**The definitive AI agent project scaffolding tool**
 
-*⚡ Currently available through source installation - PyPI and NPM packages coming soon!*
+<br>
 
-<!-- GIF PLACEHOLDER: Add demo GIF here showing CLI in action -->
-![Demo GIF Placeholder](./assets/demo.gif)
-<!-- Replace with actual GIF path when ready -->
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
+[![NPX Ready](https://img.shields.io/badge/npx-ready-00D8FF.svg?style=for-the-badge&logo=npm)](https://www.npmjs.com/)
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![GitHub Stars](https://img.shields.io/github/stars/StamKavid/agent-cli?style=for-the-badge&logo=github)](https://github.com/StamKavid/agent-cli)
 
-[Quick Start](#-quick-start) • [Project Structure](#️-generated-project-structure) • [CLI Commands](#-cli-commands) • [Examples](#-quick-examples) • [Development](#-development) • [Contributing](#-contributing)
+**[🚀 Quick Start](#-quick-start)** • **[🏗️ Project Architecture](#️-project-architecture)** • **[🎯 Real-World Examples](#-real-world-examples)** • **[📖 Documentation](#-documentation)**
 
 </div>
 
----
+<br>
+<br>
 
-## Quick Start
+## 🚀 Quick Start
 
-### Installation Options
+<table>
+<tr>
+<td width="50%">
 
-#### Install from Source (Current Method)
+### 📋 Prerequisites
+- **Node.js** for instant setup
+- **Python 3.10+** for development
+- **Your favorite code editor**
 
+</td>
+<td width="50%">
+
+### ⚡ One-Command Setup
 ```bash
-# Clone the repository
-git clone https://github.com/StamKavid/agent-cli.git
-cd agent-cli
+npx stamkavid-agent-cli my-agent
+cd my-agent && pip install -e .
+```
+**Done!** Your complete AI agent project structure is generated and ready for development.
 
-# Create and activate virtual environment
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+</td>
+</tr>
+</table>
 
-# Install in development mode
-pip install -e .
+<br>
+
+<div align="center">
+
+### 🎨 What Makes This Special?
+
+<table>
+<tr>
+<td align="center" width="33%">
+
+**🏗️ Project Structure Generator**
+
+Complete directory hierarchy  
+Pre-configured files & templates  
+Production-ready foundation
+
+</td>
+<td align="center" width="33%">
+
+**🚀 Instant Scaffolding**
+
+Complete project in seconds  
+No manual directory creation  
+Ready-to-use file templates
+
+</td>
+<td align="center" width="34%">
+
+**🔧 Production Foundation**
+
+Docker & K8s templates included  
+CI/CD pipeline structure  
+Monitoring setup scaffolding
+
+</td>
+</tr>
+</table>
+
+</div>
+
+<br>
+
+## 🏗️ Project Architecture
+
+<div align="center">
+
+### 📁 **Project Structure Generator - Complete Scaffolding**
+
+*Generate complete directory hierarchies and file templates. Every folder has a purpose. Every file has its template.*
+
+</div>
+
+<br>
+
+<details open>
+<summary><strong>🎯 Core Agent Structure</strong></summary>
+
+```
+src/your_agent/
+├── agent/                      # 🤖 The brain of your AI
+│   ├── base_agent.py          #    Core agent interface
+│   ├── langgraph_agent.py     #    Advanced workflow engine
+│   └── state_manager.py       #    Conversation state handling
+│
+├── memory/                     # 🧠 Knowledge & conversation history
+│   ├── vector_store.py        #    Semantic search capabilities
+│   ├── conversation_memory.py #    Context management
+│   └── langmem_integration.py #    Advanced memory systems
+│
+├── tools/                      # 🛠️ Agent capabilities
+│   ├── base_tool.py           #    Tool interface standard
+│   ├── web_search.py          #    Internet access
+│   ├── file_operations.py     #    File system interaction
+│   └── custom_tools.py        #    Your unique tools
+│
+└── workflows/                  # 🔄 Complex task orchestration
+    ├── workflow_builder.py    #    Visual workflow design
+    └── common_workflows.py    #    Pre-built patterns
 ```
 
-#### Future Package Installation (Coming Soon)
+</details>
+
+<details>
+<summary><strong>📚 Prompt Engineering Hub</strong></summary>
+
+```
+src/your_agent/prompts/
+├── prompt_manager.py           # 📝 Lifecycle management
+├── prompt_library.py          # 📖 Centralized collection
+├── templates/                  # 🎨 Reusable patterns
+│   ├── system_prompts.py      #    Core agent personality
+│   ├── user_prompts.py        #    User interaction templates
+│   ├── tool_prompts.py        #    Tool usage instructions
+│   └── workflow_prompts.py    #    Complex task guidance
+└── versions/                   # 📈 A/B testing & iteration
+    ├── v1_prompts.py          #    Baseline prompts
+    └── v2_prompts.py          #    Improved versions
+```
+
+</details>
+
+<details>
+<summary><strong>🚀 Production Infrastructure</strong></summary>
+
+```
+├── api/                        # 🌐 RESTful interface
+│   ├── app.py                 #    FastAPI application
+│   ├── routes.py              #    Endpoint definitions
+│   └── schemas.py             #    Data validation
+│
+├── observability/              # 📊 Monitoring & analytics
+│   ├── opik_integration.py    #    Performance tracking
+│   └── metrics.py             #    Custom monitoring
+│
+├── configs/                    # ⚙️ Environment management
+│   ├── agent_config.yaml      #    Agent behavior settings
+│   ├── llm_config.yaml        #    Model configurations
+│   └── deployment_config.yaml #    Infrastructure setup
+│
+└── notebooks/                  # 🧪 Interactive development
+    ├── 01_prompt_engineering.ipynb  # Design & test prompts
+    ├── 02_memory_experiments.ipynb  # Memory system tuning
+    ├── 03_tool_integration.ipynb    # Capability development
+    └── 04_evaluation.ipynb          # Performance analysis
+```
+
+</details>
+
+### 🔄 **Development Workflow**
+
+```mermaid
+graph LR
+    A[💡 Generate Structure] --> B[🛠️ Configure & Customize]
+    B --> C[🧪 Develop & Test]
+    C --> D[🚀 Deploy to Production]
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#fff3e0
+    style D fill:#e8f5e8
+```
+
+<details>
+<summary><strong>📋 Step-by-Step Development Guide</strong></summary>
 
 ```bash
-# Python package (when published)
-pip install ai-agent-cli-project
+# 1️⃣ Generate your complete project structure
+npx stamkavid-agent-cli my-intelligent-agent
+cd my-intelligent-agent
 
-# NPM package (when published)  
+# 2️⃣ Set up your development environment  
+cp .env.example .env
+# Add your API keys (OpenAI, Anthropic, etc.)
+
+# 3️⃣ Install dependencies and activate
+pip install -e .
+source venv/bin/activate
+
+# 4️⃣ Start developing with generated templates
+jupyter lab notebooks/01_prompt_engineering.ipynb
+
+# 5️⃣ Run your agent using the generated structure
+python -m my_intelligent_agent
+
+# 6️⃣ Test using the generated test framework
+pytest tests/
+
+# 7️⃣ Deploy using generated Docker configuration
+docker build -t my-agent .
+docker run -p 8000:8000 my-agent
+```
+
+</details>
+
+<br>
+
+## 📖 Documentation
+
+<div align="center">
+
+### 🤝 **Join the AgentCLI Community**
+
+*Help us build the future of AI agent development*
+
+</div>
+
+<br>
+
+<table>
+<tr>
+<td width="50%">
+
+### 🚀 **For Contributors**
+
+**Quick Setup:**
+```bash
+git clone https://github.com/StamKavid/agent-cli.git
+cd agent-cli
+python3 -m venv venv
+source venv/bin/activate
+pip install -e ".[dev]"
+```
+
+**Development Workflow:**
+1. Fork & clone the repository
+2. Create feature branch: `git checkout -b feature/amazing-improvement`
+3. Make changes & add tests
+4. Run test suite: `pytest`
+5. Submit pull request
+
+</td>
+<td width="50%">
+
+### 🔧 **Advanced Configuration**
+
+<details>
+<summary><strong>Custom Templates</strong></summary>
+
+Create your own project templates:
+```python
+# Add to src/agent_cli/templates/
+custom_template = {
+    "name": "my-template",
+    "structure": {...},
+    "dependencies": [...]
+}
+```
+
+</details>
+
+<details>
+<summary><strong>CLI Extensions</strong></summary>
+
+Extend AgentCLI functionality:
+```bash
+agent-cli --template=custom
+agent-cli --integrations=slack,discord
+agent-cli --deployment=aws,gcp
+```
+
+</details>
+
+</td>
+</tr>
+</table>
+
+<br>
+
+### 🛠️ **Troubleshooting**
+
+<details>
+<summary><strong>🐍 Python Environment Issues</strong></summary>
+
+```bash
+# Python version conflicts
+python3 --version  # Ensure 3.10+
+python3 -m venv venv --clear
+
+# Package installation problems
+pip install --upgrade pip
+pip install -e ".[dev]" --no-cache-dir
+```
+
+</details>
+
+<details>
+<summary><strong>📦 Project Generation Issues</strong></summary>
+
+```bash
+# Validate templates
+agent-cli validate-templates
+
+# Debug mode
+agent-cli create my-project --verbose --debug
+
+# Permission issues
+chmod +x $(which agent-cli)
+```
+
+</details>
+
+<details>
+<summary><strong>🚀 Deployment Problems</strong></summary>
+
+```bash
+# Docker build issues
+docker system prune
+docker build --no-cache -t my-agent .
+
+# Environment variables
+cat .env.example > .env
+# Edit .env with your configuration
+```
+
+</details>
+
+<br>
+
+---
+
+<br>
+
+<div align="center">
+
+## 🌟 **Alternative Installation Methods**
+
+<table>
+<tr>
+<td width="50%">
+
+### 🔧 **From Source (Developers)**
+```bash
+git clone https://github.com/StamKavid/agent-cli.git
+cd agent-cli && pip install -e .
+```
+*Perfect for contributors and customizations*
+
+</td>
+<td width="50%">
+
+### 📦 **Package Managers (Coming Soon)**
+```bash
+pip install ai-agent-cli-project
 npm install -g ai-agent-cli-project
 ```
+*One-click installation from package registries*
 
-### Create Your First AI Agent Project
+</td>
+</tr>
+</table>
 
-```bash
-# Zero-config setup - just like Claude Code! 🎉
-agent-cli my-ai-agent-project
+</div>
 
-# Or even shorter
-agent my-project
-
-# Interactive mode
-agent-cli
-```
-
-**That's it!** Your AI agent project structure is ready for development. 🎯
-
-## Generated Project Structure
-
-Every scaffolded project follows clean architecture principles with the **exact structure** you specified:
-
-```
-agent-project/
-├── .github/
-│   └── workflows/
-│       └── ci.yml                  # CI/CD pipeline
-├── .gitignore                      # Git ignore rules
-├── .env.example                    # Environment template
-├── .env                           # Local environment
-├── README.md                      # Project documentation
-├── Makefile                       # Build automation
-├── Dockerfile                     # Container setup
-├── docker-compose.yml             # Multi-container orchestration
-├── pyproject.toml                 # Modern Python packaging
-│
-├── configs/
-│   ├── agent_config.yaml         # Agent configuration
-│   ├── llm_config.yaml           # LLM provider settings
-│   └── deployment_config.yaml    # Deployment settings
-│
-├── data/
-│   ├── knowledge_base/            # Knowledge storage
-│   └── evaluation/                # Evaluation datasets
-│
-├── k8s/
-│   ├── deployment.yaml           # Kubernetes deployment
-│   └── service.yaml              # Kubernetes service
-│
-├── notebooks/
-│   ├── 01_prompt_engineering.ipynb     # Prompt development
-│   ├── 02_prompt_management.ipynb      # Prompt versioning
-│   ├── 03_memory_system.ipynb          # Memory experiments
-│   ├── 04_tool_integration.ipynb       # Tool development
-│   ├── 05_langgraph_workflows.ipynb    # Workflow design
-│   └── 06_evaluation.ipynb             # Performance evaluation
-│
-├── src/agent_project/
-│   ├── __init__.py
-│   ├── config.py                  # Configuration management
-│   ├── main.py                    # Application entry point
-│   │
-│   ├── agent/
-│   │   ├── __init__.py
-│   │   ├── base_agent.py          # Abstract base agent
-│   │   ├── langgraph_agent.py     # LangGraph implementation
-│   │   └── state_manager.py       # State persistence
-│   │
-│   ├── memory/
-│   │   ├── __init__.py
-│   │   ├── langmem_integration.py # LangMem integration
-│   │   ├── vector_store.py        # Vector storage
-│   │   └── conversation_memory.py # Conversation context
-│   │
-│   ├── tools/
-│   │   ├── __init__.py
-│   │   ├── base_tool.py           # Tool interface
-│   │   ├── web_search.py          # Web search capability
-│   │   ├── file_operations.py     # File handling
-│   │   └── custom_tools.py        # Custom tool templates
-│   │
-│   ├── workflows/
-│   │   ├── __init__.py
-│   │   ├── workflow_builder.py    # Workflow construction
-│   │   └── common_workflows.py    # Pre-built workflows
-│   │
-│   ├── prompts/
-│   │   ├── __init__.py
-│   │   ├── prompt_manager.py      # Prompt lifecycle
-│   │   ├── prompt_library.py      # Prompt collection
-│   │   ├── templates/
-│   │   │   ├── system_prompts.py  # System prompt templates
-│   │   │   ├── user_prompts.py    # User prompt templates
-│   │   │   ├── tool_prompts.py    # Tool prompt templates
-│   │   │   └── workflow_prompts.py # Workflow prompts
-│   │   └── versions/
-│   │       ├── v1_prompts.py      # Version 1 prompts
-│   │       └── v2_prompts.py      # Version 2 prompts
-│   │
-│   ├── llm/
-│   │   ├── __init__.py
-│   │   ├── client.py              # LLM client abstraction
-│   │   └── prompt_executor.py     # Prompt execution
-│   │
-│   ├── api/
-│   │   ├── __init__.py
-│   │   ├── app.py                 # FastAPI application
-│   │   ├── routes.py              # API endpoints
-│   │   └── schemas.py             # Pydantic schemas
-│   │
-│   ├── observability/
-│   │   ├── __init__.py
-│   │   ├── opik_integration.py    # Opik monitoring
-│   │   └── metrics.py             # Custom metrics
-│   │
-│   └── utils/
-│       ├── __init__.py
-│       ├── logging.py             # Logging configuration
-│       └── helpers.py             # Utility functions
-│
-├── tools/
-│   ├── run_agent.py               # Agent execution script
-│   ├── evaluate_agent.py          # Performance evaluation
-│   ├── populate_memory.py         # Memory initialization
-│   ├── manage_prompts.py          # Prompt management
-│   └── deploy.py                  # Deployment utilities
-│
-├── tests/
-│   ├── test_agent.py              # Agent testing
-│   ├── test_memory.py             # Memory testing
-│   ├── test_tools.py              # Tool testing
-│   └── test_workflows.py          # Workflow testing
-│
-└── docs/
-    ├── getting_started.md         # Quick start guide
-    ├── configuration.md           # Configuration guide
-    └── deployment.md              # Deployment guide
-```
-
-## Quick Examples
-
-### Conversational Agent Project
-
-```bash
-# First, install from source
-git clone https://github.com/StamKavid/agent-cli.git
-cd agent-cli
-python3 -m venv venv
-source venv/bin/activate
-pip install -e .
-
-# Create a customer service chatbot project
-agent-cli customer-service-bot
-
-# Navigate to project
-cd customer-service-bot
-
-# Install project dependencies
-pip install -e .
-
-# Copy and configure environment
-cp .env.example .env
-# Edit .env to add your API keys
-
-```
-
----
-
-##  Development Workflow
-
-### 1. Install CLI from Source
-```bash
-git clone https://github.com/StamKavid/agent-cli.git
-cd agent-cli
-python3 -m venv venv
-source venv/bin/activate
-pip install -e .
-```
-
-### 2. Scaffold & Setup
-```bash
-agent-cli my-agent-project
-cd my-agent-project
-```
-
-### 3. Explore & Customize
-```bash
-# Review generated structure
-tree src/
-
-# Check configuration
-cat configs/agent_config.yaml
-
-# Explore notebooks
-jupyter lab notebooks/
-```
-
-### 4. Develop & Test
-```bash
-# Install dependencies
-pip install -e .
-
-# Run tests
-pytest
-
-# Start development
-make dev-setup
-```
-
----
-
-## Development
-
-### Prerequisites
-- Python 3.10+ 
-- Virtual environment (recommended)
-
-### Setup for Development
-
-```bash
-# Clone and setup
-git clone https://github.com/StamKavid/agent-cli.git
-cd agent-cli
-
-# Create and activate virtual environment
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install with development dependencies
-pip install -e ".[dev]"
-```
-
-### Testing the CLI Tool
-
-```bash
-# Test basic CLI functionality
-agent-cli --help
-
-# Test project creation
-agent-cli test-project
-cd test-project
-
-# Test generated project installation
-pip install -e .
-
-# Run generated project tests (after fixing any template issues)
-pytest
-
-# Clean up test projects
-cd .. && rm -rf test-project
-```
-
----
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests and ensure they pass
-5. Submit a pull request
-
----
-
-## Troubleshooting
-
-### Testing Issues
-
-**Virtual environment setup:**
-```bash
-# If python command not found, use python3
-python3 -m venv venv
-source venv/bin/activate
-
-# If pip install fails with brackets, quote them
-pip install -e ".[dev]"
-```
-
-**Syntax errors in generated templates:**
-- Report template issues to GitHub Issues
-- Generated projects may need API keys for full functionality
-- Some tests require internet connection for LLM services
-
-### Common Issues
-
-**Project name validation fails:**
-```bash
-# Both formats work - CLI handles conversion automatically
-agent-cli create my-agent-project  # ✅ Good (creates my-agent-project/ directory)
-agent-cli create my_agent_project  # ✅ Good (creates my_agent_project/ directory)
-agent-cli create "my agent!"       # ❌ Bad (invalid characters)
-```
-
-**Template validation errors:**
-```bash
-# Validate all templates
-agent-cli validate-templates
-```
-
-**Permission errors:**
-```bash
-# Ensure write permissions
-chmod +w /path/to/output/directory
-```
-
-### Debug Mode
-```bash
-# Enable verbose output
-agent-cli create my-agent-project --verbose
-agent-cli validate-templates --verbose
-```
-
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## Links
-
-- **Documentation**: [GitHub Repository](https://github.com/StamKavid/agent-cli)
-- **Issues**: [GitHub Issues](https://github.com/StamKavid/agent-cli/issues)
-- **Contributing**: [Contributing Guide](https://github.com/StamKavid/agent-cli/blob/main/CONTRIBUTING.md)
-
-### Future Package Links (Coming Soon)
-- **Python Package**: [ai-agent-cli-project on PyPI](https://pypi.org/project/ai-agent-cli-project/) *(Not yet published)*
-- **NPM Package**: [ai-agent-cli-project on npm](https://www.npmjs.com/package/ai-agent-cli-project) *(Not yet published)*
-
----
-
-## Acknowledgments
-
-### Inspiration
-This project structure was inspired by the amazing work of [Miguel Otero Pedrido (@MichaelisTrofficus)](https://github.com/MichaelisTrofficus).
-
-**Check out his work:**
-- 🏢 [The Neural Maze](https://github.com/neural-maze) - Hub for ML projects with step-by-step explanations
-- 📺 [YouTube Channel](https://www.youtube.com/@theneuralmaze) - Tutorials and project showcases
-- 📧 [Newsletter](https://theneuralmaze.substack.com/) - Latest articles and project updates
-- 🔗 [LinkedIn](https://linkedin.com/in/migueloteropedrido) - Professional profile
+<br>
 
 ---
 
 <div align="center">
 
-**Made with ❤️ by [Stamatis Kavidopoulos](https://github.com/StamKavid)**
+## 📄 **License & Attribution**
 
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/StamKavid)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/stamatiskavidopoulos)
+**MIT License** - Use freely in commercial and personal projects
 
-**Ready to scaffold amazing AI agent projects? Start creating today! 🚀**
+<br>
+
+### 🙏 **Acknowledgments**
+
+Built with inspiration from [Miguel Otero Pedrido](https://github.com/MichaelisTrofficus) and the [Neural Maze](https://github.com/neural-maze) community.
+
+<br>
+
+### 🔗 **Connect & Contribute**
+
+[![GitHub Repository](https://img.shields.io/badge/Repository-black?style=for-the-badge&logo=github)](https://github.com/StamKavid/agent-cli)
+[![Report Issues](https://img.shields.io/badge/Issues-red?style=for-the-badge&logo=github)](https://github.com/StamKavid/agent-cli/issues)
+[![Contributing](https://img.shields.io/badge/Contributing-blue?style=for-the-badge&logo=github)](https://github.com/StamKavid/agent-cli/blob/main/CONTRIBUTING.md)
+
+<br>
+
+### 🚀 **Ready to Generate Your AI Agent Project Structure?**
+
+<br>
+
+*Built by developers, for developers. Make AI agent project scaffolding as simple as it should be.*
 
 </div>
