@@ -188,20 +188,6 @@ agent-project/
     └── deployment.md              # Deployment guide
 ```
 
----
-
-## CLI Commands
-
-| Command | Description | Example |
-|---------|-------------|---------|
-| `create` | Create new AI agent project scaffold | `agent-cli create chatbot-project` |
-| `list-templates` | Show available project templates | `agent-cli list-templates` |
-| `validate-templates` | Validate all project templates | `agent-cli validate-templates` |
-| `validate` | Validate a project name | `agent-cli validate my-project` |
-| `info` | Show CLI information | `agent-cli info` |
-
----
-
 ## Quick Examples
 
 ### Conversational Agent Project
@@ -227,8 +213,6 @@ pip install -e .
 cp .env.example .env
 # Edit .env to add your API keys
 
-# Start development
-make dev-setup
 ```
 
 ---
@@ -276,7 +260,7 @@ make dev-setup
 
 ---
 
-## 🔧 Development
+## Development
 
 ### Prerequisites
 - Python 3.10+ 
@@ -317,32 +301,6 @@ pytest
 cd .. && rm -rf test-project
 ```
 
-### Code Quality
-
-```bash
-# Format code
-black src/ && isort src/
-
-# Type checking
-mypy src/
-
-# Linting
-flake8 src/
-```
-
-### Template Validation
-
-```bash
-# Test template generation programmatically
-python -c "
-from agent_cli.core.creator import ProjectCreator
-from agent_cli.templates import ProjectTemplateManager, FileTemplateManager
-creator = ProjectCreator()
-result = creator.create_project('test-validation', 'temp_test')
-print('Template validation:', 'PASSED' if result else 'FAILED')
-"
-```
-
 ---
 
 ## Contributing
@@ -367,13 +325,6 @@ source venv/bin/activate
 
 # If pip install fails with brackets, quote them
 pip install -e ".[dev]"
-```
-
-**Generated project dependency errors:**
-```bash
-# If langmem version conflicts, the CLI will generate correct versions
-# For older versions, manually update pyproject.toml:
-# langmem>=0.0.29  # instead of >=0.1.0
 ```
 
 **Syntax errors in generated templates:**
