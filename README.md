@@ -11,7 +11,7 @@
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![GitHub Stars](https://img.shields.io/github/stars/StamKavid/agent-cli?style=for-the-badge&logo=github)](https://github.com/StamKavid/agent-cli)
 
-**[🚀 Quick Start](#-quick-start)** • **[🏗️ Project Architecture](#️-project-architecture)** • **[🎯 Real-World Examples](#-real-world-examples)** • **[📖 Documentation](#-documentation)**
+**[🚀 Quick Start](#-quick-start)** • **[🏗️ Project Architecture](#️-project-architecture)** • **[📖 Documentation](#-documentation)**
 
 </div>
 
