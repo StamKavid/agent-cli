@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![NPM](https://img.shields.io/badge/npm-%40stamkavid%2Fagent--cli-red.svg)](https://www.npmjs.com/package/@stamkavid/agent-cli)
+[![GitHub](https://img.shields.io/badge/GitHub-agent--cli-green.svg)](https://github.com/StamKavid/agent-cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
@@ -11,7 +11,7 @@
 
 **Scaffold AI agent projects in minutes, not hours. The most focused and simplified project setup experience for AI agent development.**
 
-*⚡ Now available for both Python and NPM ecosystems - choose your preferred installation method!*
+*⚡ Currently available through source installation - PyPI and NPM packages coming soon!*
 
 <!-- GIF PLACEHOLDER: Add demo GIF here showing CLI in action -->
 ![Demo GIF Placeholder](./assets/demo.gif)
@@ -27,27 +27,29 @@
 
 ### Installation Options
 
-#### Python Ecosystem (Recommended for Python developers)
+#### Install from Source (Current Method)
 
 ```bash
-# Global installation with pipx (recommended) - works everywhere
-pipx install agent-cli
+# Clone the repository
+git clone https://github.com/StamKavid/agent-cli.git
+cd agent-cli
 
-# Or use pip globally
-pip install --user agent-cli
+# Create and activate virtual environment
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Or in current environment
-pip install agent-cli
+# Install in development mode
+pip install -e .
 ```
 
-#### NPM Ecosystem (For Node.js developers)
+#### Future Package Installation (Coming Soon)
 
 ```bash
-# Global installation with npm - works everywhere!
-npm install -g @stamkavid/agent-cli
+# Python package (when published)
+pip install ai-agent-cli-project
 
-# Or use with npx (no installation needed)
-npx @stamkavid/agent-cli my-awesome-project
+# NPM package (when published)  
+npm install -g ai-agent-cli-project
 ```
 
 ### Create Your First AI Agent Project
@@ -205,62 +207,50 @@ agent-project/
 ### Conversational Agent Project
 
 ```bash
+# First, install from source
+git clone https://github.com/StamKavid/agent-cli.git
+cd agent-cli
+python3 -m venv venv
+source venv/bin/activate
+pip install -e .
+
 # Create a customer service chatbot project
-agent-cli create customer-service-bot
+agent-cli customer-service-bot
 
 # Navigate to project
 cd customer-service-bot
 
-# Run the included quickstart
-cd quickstart && python quickstart.py
+# Install project dependencies
+pip install -e .
+
+# Copy and configure environment
+cp .env.example .env
+# Edit .env to add your API keys
 
 # Start development
 make dev-setup
-```
-
-### Research Assistant Project
-
-```bash
-# Create a research agent project
-agent-cli create research-assistant
-
-# Navigate to project
-cd research-assistant
-
-# Explore the generated structure
-ls -la
-
-# Check the notebooks for experimentation
-jupyter lab notebooks/
-```
-
-### Task Automation Project
-
-```bash
-# Create an automation agent project
-agent-cli create workflow-automation
-
-# Navigate to project
-cd workflow-automation
-
-# Review the generated architecture
-tree src/
-
-# Start development
-make install
 ```
 
 ---
 
 ##  Development Workflow
 
-### 1. Scaffold & Setup
+### 1. Install CLI from Source
+```bash
+git clone https://github.com/StamKavid/agent-cli.git
+cd agent-cli
+python3 -m venv venv
+source venv/bin/activate
+pip install -e .
+```
+
+### 2. Scaffold & Setup
 ```bash
 agent-cli my-agent-project
 cd my-agent-project
 ```
 
-### 2. Explore & Customize
+### 3. Explore & Customize
 ```bash
 # Review generated structure
 tree src/
@@ -272,7 +262,7 @@ cat configs/agent_config.yaml
 jupyter lab notebooks/
 ```
 
-### 3. Develop & Test
+### 4. Develop & Test
 ```bash
 # Install dependencies
 pip install -e .
@@ -286,31 +276,71 @@ make dev-setup
 
 ---
 
-## Testing
-
-```bash
-# Run all tests
-pytest
-
-# Run with coverage
-pytest --cov=src/agent_cli --cov-report=html
-```
-
----
-
 ## 🔧 Development
+
+### Prerequisites
+- Python 3.10+ 
+- Virtual environment (recommended)
+
+### Setup for Development
 
 ```bash
 # Clone and setup
 git clone https://github.com/StamKavid/agent-cli.git
 cd agent-cli
-pip install -e .[dev]
 
-# Run tests
+# Create and activate virtual environment
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install with development dependencies
+pip install -e ".[dev]"
+```
+
+### Testing the CLI Tool
+
+```bash
+# Test basic CLI functionality
+agent-cli --help
+
+# Test project creation
+agent-cli test-project
+cd test-project
+
+# Test generated project installation
+pip install -e .
+
+# Run generated project tests (after fixing any template issues)
 pytest
 
+# Clean up test projects
+cd .. && rm -rf test-project
+```
+
+### Code Quality
+
+```bash
 # Format code
 black src/ && isort src/
+
+# Type checking
+mypy src/
+
+# Linting
+flake8 src/
+```
+
+### Template Validation
+
+```bash
+# Test template generation programmatically
+python -c "
+from agent_cli.core.creator import ProjectCreator
+from agent_cli.templates import ProjectTemplateManager, FileTemplateManager
+creator = ProjectCreator()
+result = creator.create_project('test-validation', 'temp_test')
+print('Template validation:', 'PASSED' if result else 'FAILED')
+"
 ```
 
 ---
@@ -326,6 +356,30 @@ black src/ && isort src/
 ---
 
 ## Troubleshooting
+
+### Testing Issues
+
+**Virtual environment setup:**
+```bash
+# If python command not found, use python3
+python3 -m venv venv
+source venv/bin/activate
+
+# If pip install fails with brackets, quote them
+pip install -e ".[dev]"
+```
+
+**Generated project dependency errors:**
+```bash
+# If langmem version conflicts, the CLI will generate correct versions
+# For older versions, manually update pyproject.toml:
+# langmem>=0.0.29  # instead of >=0.1.0
+```
+
+**Syntax errors in generated templates:**
+- Report template issues to GitHub Issues
+- Generated projects may need API keys for full functionality
+- Some tests require internet connection for LLM services
 
 ### Common Issues
 
@@ -349,35 +403,6 @@ agent-cli validate-templates
 chmod +w /path/to/output/directory
 ```
 
-### NPM-Specific Issues
-
-**Python not found (NPM users):**
-```bash
-# Install Python first
-# Visit: https://python.org/downloads/
-
-# Then install agent-cli via npm
-npm install -g @stamkavid/agent-cli
-```
-
-**Manual Python package installation:**
-```bash
-# If auto-installation fails
-pip install agent-cli
-
-# Or with pipx (recommended)
-pipx install agent-cli
-```
-
-**NPM permission issues:**
-```bash
-# Use npx instead of global installation
-npx @stamkavid/agent-cli my-project
-
-# Or install with --unsafe-perm
-npm install -g @stamkavid/agent-cli --unsafe-perm
-```
-
 ### Debug Mode
 ```bash
 # Enable verbose output
@@ -395,18 +420,20 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Links
 
-- **🐍 Python Package**: [agent-cli on PyPI](https://pypi.org/project/agent-cli/)
-- **📦 NPM Package**: [@stamkavid/agent-cli on npm](https://www.npmjs.com/package/@stamkavid/agent-cli)
-- **📚 Documentation**: [GitHub Repository](https://github.com/StamKavid/agent-cli)
-- **🐛 Issues**: [GitHub Issues](https://github.com/StamKavid/agent-cli/issues)
-- **📋 Contributing**: [Contributing Guide](https://github.com/StamKavid/agent-cli/blob/main/CONTRIBUTING.md)
+- **Documentation**: [GitHub Repository](https://github.com/StamKavid/agent-cli)
+- **Issues**: [GitHub Issues](https://github.com/StamKavid/agent-cli/issues)
+- **Contributing**: [Contributing Guide](https://github.com/StamKavid/agent-cli/blob/main/CONTRIBUTING.md)
+
+### Future Package Links (Coming Soon)
+- **Python Package**: [ai-agent-cli-project on PyPI](https://pypi.org/project/ai-agent-cli-project/) *(Not yet published)*
+- **NPM Package**: [ai-agent-cli-project on npm](https://www.npmjs.com/package/ai-agent-cli-project) *(Not yet published)*
 
 ---
 
-## �🙏 Acknowledgments
+## Acknowledgments
 
 ### Inspiration
-This project was inspired by the amazing work of [Miguel Otero Pedrido (@MichaelisTrofficus)](https://github.com/MichaelisTrofficus).
+This project structure was inspired by the amazing work of [Miguel Otero Pedrido (@MichaelisTrofficus)](https://github.com/MichaelisTrofficus).
 
 **Check out his work:**
 - 🏢 [The Neural Maze](https://github.com/neural-maze) - Hub for ML projects with step-by-step explanations
