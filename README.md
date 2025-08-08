@@ -85,6 +85,67 @@ Monitoring setup scaffolding
 
 <br>
 
+## 🔧 Installation & Setup
+
+### Method 1: NPX (Recommended)
+
+**Quick Start:**
+```bash
+npx stamkavid-agent-cli my-agent
+cd my-agent && pip install -e .
+```
+
+**If you encounter issues** (e.g., "Cannot find module" or "externally-managed-environment"):
+
+```bash
+# Step 1: Clear any corrupted dependencies
+rm -rf node_modules package-lock.json
+npm install
+
+# Step 2: Create Python virtual environment
+python3 -m venv agent-cli-venv
+source agent-cli-venv/bin/activate
+
+# Step 3: Install the Python package locally
+pip install -e .
+
+# Step 4: Test the setup
+npx stamkavid-agent-cli --help
+```
+
+### Method 2: Global Installation
+
+```bash
+# Install globally via npm
+npm install -g stamkavid-agent-cli
+
+# Then use directly
+agent-cli my-project
+# or
+agent my-project
+# or  
+agentcli my-project
+```
+
+### Method 3: From Source (Developers)
+
+```bash
+git clone https://github.com/StamKavid/agent-cli.git
+cd agent-cli
+
+# Create and activate virtual environment
+python3 -m venv agent-cli-venv
+source agent-cli-venv/bin/activate
+
+# Install in development mode
+pip install -e .
+
+# Test installation
+agent-cli --help
+```
+
+<br>
+
 ## 🏗️ Project Architecture
 
 <div align="center">
@@ -199,7 +260,6 @@ cp .env.example .env
 
 # 3️⃣ Install dependencies and activate
 pip install -e .
-source venv/bin/activate
 
 # 4️⃣ Start developing with generated templates
 jupyter lab notebooks/01_prompt_engineering.ipynb
@@ -309,6 +369,40 @@ pip install -e ".[dev]" --no-cache-dir
 </details>
 
 <details>
+<summary><strong>🔧 NPM Package Setup Issues</strong></summary>
+
+If you encounter issues with the npm wrapper (e.g., "Cannot find module" or "externally-managed-environment" errors), follow these steps:
+
+```bash
+# 1. Clear and reinstall npm dependencies
+rm -rf node_modules package-lock.json
+npm install
+
+# 2. Create a Python virtual environment for the project
+python3 -m venv agent-cli-venv
+source agent-cli-venv/bin/activate
+
+# 3. Install the local Python package in editable mode
+pip install -e .
+
+# 4. Test the setup
+npx agent-cli --help
+# or
+npx stamkavid-agent-cli --help
+```
+
+**Why this works:** The npm wrapper needs access to the Python `agent-cli` package. Creating a virtual environment and installing the package locally ensures the wrapper can find and execute the Python CLI correctly.
+
+**Alternative if pipx is available:**
+```bash
+# If you have pipx installed (recommended for macOS)
+pipx install agent-cli
+# Then run: npx agent-cli --help
+```
+
+</details>
+
+<details>
 <summary><strong>📦 Project Generation Issues</strong></summary>
 
 ```bash
@@ -347,28 +441,32 @@ cat .env.example > .env
 
 <div align="center">
 
-## 🌟 **Alternative Installation Methods**
+## 🌟 **Additional Resources**
 
 <table>
 <tr>
 <td width="50%">
 
-### 🔧 **From Source (Developers)**
+### **Documentation & Examples**
 ```bash
-git clone https://github.com/StamKavid/agent-cli.git
-cd agent-cli && pip install -e .
+# Browse generated examples
+cd my-agent/examples/
+# View templates
+ls src/templates/
 ```
-*Perfect for contributors and customizations*
+*Complete project examples and templates*
 
 </td>
 <td width="50%">
 
-### 📦 **Package Managers (Coming Soon)**
+### **Python Package Only**
 ```bash
-pip install ai-agent-cli-project
-npm install -g ai-agent-cli-project
+# Direct Python installation
+pipx install agent-cli
+# or
+pip install agent-cli
 ```
-*One-click installation from package registries*
+*For Python-only environments*
 
 </td>
 </tr>
